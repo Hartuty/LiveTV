@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">AbachTV</string>
+    <string name="drawer_item_home">Home</string>
+    <string name="drawer_item_live">Live Sports</string>
+    <string name="drawer_item_news">News</string>
+    <string name="drawer_item_entertainment">Entertainment</string>
+    <string name="drawer_item_kid">Kids</string>
+    <string name="drawer_item_settings">Settings</string>
+    <string name="drawer_item_Disclaimer">Disclaimer</string>
+    <string name="drawer_item_exit">Exit</string>
+</resources>
