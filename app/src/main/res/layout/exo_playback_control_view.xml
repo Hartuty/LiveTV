@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CC000000"
+    >
+
+    <ImageButton android:id="@id/exo_play"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        style="@style/ExoMediaButton.Play"/>
+
+    <ImageButton android:id="@id/exo_pause"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        style="@style/ExoMediaButton.Pause"/>
+
+    <ImageButton
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|left"
+        android:layout_margin="15dp"
+        android:background="@drawable/baseline_arrow_back_24"
+        android:backgroundTint="@color/design_default_color_background" />
+
+    <ImageButton
+        android:id="@+id/fullscreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="15dp"
+        android:background="@drawable/baseline_fullscreen_24"
+        android:backgroundTint="@color/design_default_color_background" />
+
+    <ImageButton android:id="@id/exo_rew"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center|left"
+        style="@style/ExoMediaButton.Rewind"/>
+
+    <ImageButton android:id="@+id/exo_ffwd"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center|right"
+        style="@style/ExoMediaButton.FastForward"/>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/colorPrimary"
+        android:layout_gravity="center"
+        android:visibility="visible"
+        />
+
+</FrameLayout>
