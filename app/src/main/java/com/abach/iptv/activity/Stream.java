@@ -26,11 +26,16 @@ import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.source.MediaSource;
+import com.google.android.exoplayer2.source.ProgressiveMediaSource;
+import com.google.android.exoplayer2.source.dash.DashMediaSource;
 import com.google.android.exoplayer2.source.hls.HlsMediaSource;
+import com.google.android.exoplayer2.source.smoothstreaming.SsMediaSource;
 import com.google.android.exoplayer2.ui.AspectRatioFrameLayout;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
+import com.google.android.exoplayer2.upstream.DefaultHttpDataSource;
+import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -297,8 +302,24 @@ public class Stream extends AppCompatActivity {
         aspectRatioFrameLayout=findViewById(R.id.aspect);
         aspectRatioFrameLayout.setAspectRatio(16f/9f);
         playerView.setPlayer(player);
-        DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(this,
-                Util.getUserAgent(this, "yourApplicationName"));
+
+        String userAgent = Util.getUserAgent(this, Util.getUserAgent(this,"AbachTV"));
+
+// Default parameters, except allowCrossProtocolRedirects is true
+        DefaultHttpDataSourceFactory httpDataSourceFactory = new DefaultHttpDataSourceFactory(
+                userAgent,
+                null /* listener */,
+                DefaultHttpDataSource.DEFAULT_CONNECT_TIMEOUT_MILLIS,
+                DefaultHttpDataSource.DEFAULT_READ_TIMEOUT_MILLIS,
+                true /* allowCrossProtocolRedirects */
+        );
+
+        DefaultDataSourceFactory dataSourceFactory = new DefaultDataSourceFactory(
+                this,
+                null /* listener */,
+                httpDataSourceFactory
+        );
+
         MediaSource videoSource =
                 new HlsMediaSource.Factory(dataSourceFactory)
                         .createMediaSource(mp4VideoUri);
